@@ -19,7 +19,7 @@
                                     <span class="label-text">Nama Kategori</span>
                                 </label>
                                 <input type="text" name="nama" placeholder="Ketik di sini"
-                                    class="input input-bordered w-full max-w-xs" />
+                                    class="input input-bordered w-full max-w-xs" required/>
                             </div>
 
                             <button type="submit" class="btn bg-green-600 btn-sm mt-5">Simpan</button>

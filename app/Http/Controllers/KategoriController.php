@@ -49,6 +49,7 @@ class KategoriController extends Controller
         // add to table kategori
         $kategori = Kategori::create($data);
 
+        toast()->success('Tambah data berhasil.');
         return redirect()->route('kategori');
     }
 
@@ -90,6 +91,7 @@ class KategoriController extends Controller
         $kategori = Kategori::where('id', $id)->first();
         $kategori->update($data_kategori);
 
+        toast()->success('Ubah data berhasil.');
         return redirect()->route('kategori');
     }
 
@@ -105,6 +107,10 @@ class KategoriController extends Controller
         if($kategori) {
             $kategori->delete();
 
+            toast()->success('Hapus data berhasil.');
+            return redirect()->route('kategori');
+        } else {
+            toast()->error('Hapus data gagal!');
             return redirect()->route('kategori');
         }
     }
