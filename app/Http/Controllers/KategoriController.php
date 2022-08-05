@@ -86,7 +86,6 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $data_kategori = $request->all();
         $kategori = Kategori::where('id', $id)->first();
         $kategori->update($data_kategori);

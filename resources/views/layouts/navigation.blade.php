@@ -22,6 +22,14 @@
                         class="{{ request()->is('kategori') || request()->is('kategori/*') ? 'inline-flex items-center px-1 pt-1 border-b-2 border-gray-800 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out' : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out' }}">
                         Kategori
                     </a>
+                    <a href="{{ route('visi_misi') }}"
+                        class="{{ request()->is('visi_misi') || request()->is('visi_misi/*') ? 'inline-flex items-center px-1 pt-1 border-b-2 border-gray-800 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out' : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out' }}">
+                        Visi Misi
+                    </a>
+                    <a href="{{ route('identitas_sekolah') }}"
+                        class="{{ request()->is('identitas_sekolah') || request()->is('identitas_sekolah/*') ? 'inline-flex items-center px-1 pt-1 border-b-2 border-gray-800 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out' : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out' }}">
+                        Profil Sekolah
+                    </a>
                 </div>
             </div>
 

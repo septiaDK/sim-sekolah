@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\IdentitasSekolahController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +19,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingPageController::class, 'index']);
 
-Route::resource('kategori', KategoriController::class);
-Route::get('kategori', [KategoriController::class, 'index'])->name('kategori');
+// kategori
+Route::resource('kategori', KategoriController::class)->middleware(['auth']);
+Route::get('kategori', [KategoriController::class, 'index'])->middleware(['auth'])->name('kategori');
 
+// visi misi
+Route::resource('visi_misi', VisiMisiController::class)->middleware(['auth']);
+Route::get('visi_misi', [VisiMisiController::class, 'index'])->middleware(['auth'])->name('visi_misi');
+
+// identitas_sekolah
+Route::resource('identitas_sekolah', IdentitasSekolahController::class)->middleware(['auth']);
+Route::get('identitas_sekolah', [IdentitasSekolahController::class, 'index'])->middleware(['auth'])->name('identitas_sekolah');
+
+// dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
