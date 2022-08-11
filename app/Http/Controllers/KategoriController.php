@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\KategoriRequest;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class KategoriController extends Controller
 {
@@ -15,14 +17,35 @@ class KategoriController extends Controller
     public function index(Request $request)
     {
         $title = 'Data Kategori';
-        $keyword = $request->get('keyword') ? $request->get('keyword') : '';
+        
+        if(request()->ajax()) {
+            $query = Kategori::query();
 
-        if($keyword) {
-            $kategoris = Kategori::where('nama', 'LIKE', "%$keyword%")->orderBy('nama', 'asc')->paginate(10);
-        } else {
-            $kategoris = Kategori::orderBy('nama', 'asc')->paginate(10);
+            return DataTables::of($query)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($item){
+                        return '
+                        <a class="text-white px-2 py-2 rounded-md focus:outline-none focus:shadow-outline" 
+                            href="' . route('kategori.edit', $item->id) . '"
+                            style="background-color: rgb(75 85 99); margin-right: 0.6rem; display: inline-block;"
+                        >
+                            Edit
+                        </a>
+                        <form action="'. route('kategori.destroy', $item->id) .'" method="POST" style="display: inline-block;">
+                        <button class="text-white px-2 py-2 rounded-md focus:outline-none focus:shadow-outline hapus" 
+                            data-nama="'. $item->nama .'"
+                            style="background-color: rgb(220 38 38);"
+                        >
+                            Hapus
+                        </button>
+                        ' . method_field('delete') . csrf_field() . '
+                        </form>';
+                    })
+                    ->rawColumns(['action'])
+                    ->make();
         }
-        return view('backend.kategori.index', compact('title', 'kategoris'));
+
+        return view('pages.backend.kategori.index', compact('title'));
     }
 
     /**
@@ -33,7 +56,7 @@ class KategoriController extends Controller
     public function create()
     {
         $title = 'Tambah Data Kategori';
-        return view('backend.kategori.create', compact('title'));
+        return view('pages.backend.kategori.create', compact('title'));
     }
 
     /**
@@ -42,7 +65,7 @@ class KategoriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KategoriRequest $request)
     {
         $data = $request->all();
         
@@ -74,7 +97,7 @@ class KategoriController extends Controller
     {
         $title = 'Ubah Data Kategori';
         $kategori = Kategori::where('id', $id)->first();
-        return view('backend.kategori.edit', compact('title', 'kategori'));
+        return view('pages.backend.kategori.edit', compact('title', 'kategori'));
     }
 
     /**

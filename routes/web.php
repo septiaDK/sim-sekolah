@@ -3,6 +3,7 @@
 use App\Http\Controllers\IdentitasSekolahController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\TenagaPendidikController;
 use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,10 @@ Route::get('visi_misi', [VisiMisiController::class, 'index'])->middleware(['auth
 // identitas_sekolah
 Route::resource('identitas_sekolah', IdentitasSekolahController::class)->middleware(['auth']);
 Route::get('identitas_sekolah', [IdentitasSekolahController::class, 'index'])->middleware(['auth'])->name('identitas_sekolah');
+
+// guru
+Route::resource('tenaga_pendidik', TenagaPendidikController::class)->middleware(['auth']);
+Route::get('tenaga_pendidik', [TenagaPendidikController::class, 'index'])->middleware(['auth'])->name('tenaga_pendidik');
 
 // dashboard
 Route::get('/dashboard', function () {

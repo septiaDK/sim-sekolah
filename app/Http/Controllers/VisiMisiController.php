@@ -18,7 +18,7 @@ class VisiMisiController extends Controller
         // check data visi misi
         $visi_misi = VisiMisi::get()->first();
 
-        return view('backend.visi_misi.index', compact('title', 'visi_misi'));
+        return view('pages.backend.visi_misi.index', compact('title', 'visi_misi'));
     }
 
     /**
@@ -29,7 +29,7 @@ class VisiMisiController extends Controller
     public function create()
     {
         $title = 'Tambah Visi Misi';
-        return view('backend.visi_misi.create', compact('title'));
+        return view('pages.backend.visi_misi.create', compact('title'));
     }
 
     /**
@@ -69,7 +69,7 @@ class VisiMisiController extends Controller
     {
         $title = 'Ubah Visi Misi';
         $visi_misi = VisiMisi::where('id', $id)->first();
-        return view('backend.visi_misi.edit', compact('title', 'visi_misi'));
+        return view('pages.backend.visi_misi.edit', compact('title', 'visi_misi'));
     }
 
     /**

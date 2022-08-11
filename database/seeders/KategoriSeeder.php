@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class KategoriSeeder extends Seeder
 {
@@ -15,10 +16,10 @@ class KategoriSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('kategori')->insert(
-            [
-                'nama' => 'Pengumuman'
-            ]
-        );
+        for($i=0; $i <= 100; $i++){
+            DB::table('kategori')->insert([
+                'nama' => Str::random(10)
+            ]);
+        }
     }
 }

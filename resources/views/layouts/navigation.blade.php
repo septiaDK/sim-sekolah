@@ -13,23 +13,25 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
 
-                    <a href="{{ route('dashboard') }}"
-                        class="{{ request()->is('dashboard') ? 'inline-flex items-center px-1 pt-1 border-b-2 border-gray-800 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out' : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out' }}">
-                        Dashboard
-                    </a>
-                    <a href="{{ route('kategori') }}"
-                        class="{{ request()->is('kategori') || request()->is('kategori/*') ? 'inline-flex items-center px-1 pt-1 border-b-2 border-gray-800 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out' : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out' }}">
-                        Kategori
-                    </a>
-                    <a href="{{ route('visi_misi') }}"
-                        class="{{ request()->is('visi_misi') || request()->is('visi_misi/*') ? 'inline-flex items-center px-1 pt-1 border-b-2 border-gray-800 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out' : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out' }}">
-                        Visi Misi
-                    </a>
-                    <a href="{{ route('identitas_sekolah') }}"
-                        class="{{ request()->is('identitas_sekolah') || request()->is('identitas_sekolah/*') ? 'inline-flex items-center px-1 pt-1 border-b-2 border-gray-800 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out' : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out' }}">
-                        Profil Sekolah
-                    </a>
+                    <x-nav-link :href="route('identitas_sekolah')" :active="request()->routeIs('identitas_sekolah')">
+                        {{ __('Profil Sekolah') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('visi_misi')" :active="request()->routeIs('visi_misi')">
+                        {{ __('Visi Misi') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('kategori')" :active="request()->routeIs('kategori')">
+                        {{ __('Kategori') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('tenaga_pendidik')" :active="request()->routeIs('tenaga_pendidik')">
+                        {{ __('Tenaga Pendidik & Staff') }}
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -18,24 +18,12 @@ class IdentitasSekolah extends Model
 
     protected $fillable = [
         'nama_sekolah',
-        'npsn',
-        'status',
-        'bentuk_pendidikan',
         'sk_berdiri',
         'tgl_sk_berdiri',
-        'sk_operasional',
-        'tgl_sk_operasional',
-        'alamat',
-        'rt_rw',
-        'kelurahan',
-        'kecamatan',
-        'kabupaten',
-        'provinsi',
-        'kode_pos',
-        'lintang',
-        'bujur',
-        'sejarah',
-        'foto_profil',
+        'sejarah_singkat',
+        'latitude',
+        'longitude',
+        'struktur_organisasi',
         'created_at',
         'updated_at'
     ];

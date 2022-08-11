@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\IdentitasSekolahRequest;
 use App\Models\IdentitasSekolah;
 use Illuminate\Http\Request;
+
+use File;
 
 class IdentitasSekolahController extends Controller
 {
@@ -16,7 +19,8 @@ class IdentitasSekolahController extends Controller
     {
         $title = 'Profil Sekolah';
         $identitas_sekolah = IdentitasSekolah::get()->first();
-        return view('backend.identitas_sekolah.index', compact('title', 'identitas_sekolah'));
+
+        return view('pages.backend.identitas_sekolah.index', compact('title', 'identitas_sekolah'));
     }
 
     /**
@@ -27,7 +31,7 @@ class IdentitasSekolahController extends Controller
     public function create()
     {
         $title = 'Tambah Identitas Sekolah';
-        return view('backend.identitas_sekolah.create', compact('title'));
+        return view('pages.backend.identitas_sekolah.create', compact('title'));
     }
 
     /**
@@ -36,9 +40,16 @@ class IdentitasSekolahController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(IdentitasSekolahRequest $request)
     {
         $data = $request->all();
+        // store file to storage
+        if(isset($data['struktur_organisasi'])) {
+            $data['struktur_organisasi'] = $request->file('struktur_organisasi')->store(
+                'assets/struktur_organisasi', 'public'
+            );
+        }
+
         $identitas_sekolah = IdentitasSekolah::create($data);
 
         toast()->success('Tambah data berhasil.');
@@ -67,7 +78,7 @@ class IdentitasSekolahController extends Controller
         $title = 'Ubah Identitas Sekolah';
         $identitas_sekolah = IdentitasSekolah::get()->first();
 
-        return view('backend.identitas_sekolah.edit', compact('title', 'identitas_sekolah'));
+        return view('pages.backend.identitas_sekolah.edit', compact('title', 'identitas_sekolah'));
     }
 
     /**
@@ -80,6 +91,25 @@ class IdentitasSekolahController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+
+        // delete old file from storage
+        if(isset($data['struktur_organisasi'])) {
+            $get_path_link = IdentitasSekolah::where('id', $id)->first();
+            $path_file = 'storage/'. $get_path_link->struktur_organisasi;
+
+            if(File::exists($path_file)) {
+                File::delete($path_file);
+            } else {
+                File::delete('storage/app/public/'. $get_path_link->struktur_organisasi);
+            }
+        }
+
+        // store file to storage
+        if(isset($data['struktur_organisasi'])) {
+            $data['struktur_organisasi'] = $request->file('struktur_organisasi')->store(
+                'assets/struktur_organisasi', 'public'
+            );
+        }
 
         $identitas_sekolah = IdentitasSekolah::where('id', $id)->first();
         $identitas_sekolah->update($data);
