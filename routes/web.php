@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\IdentitasSekolahController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
@@ -35,6 +36,10 @@ Route::get('identitas_sekolah', [IdentitasSekolahController::class, 'index'])->m
 // guru
 Route::resource('tenaga_pendidik', TenagaPendidikController::class)->middleware(['auth']);
 Route::get('tenaga_pendidik', [TenagaPendidikController::class, 'index'])->middleware(['auth'])->name('tenaga_pendidik');
+
+// fasilitas
+Route::resource('fasilitas', FasilitasController::class)->middleware(['auth']);
+Route::get('fasilitas', [FasilitasController::class, 'index'])->middleware(['auth'])->name('fasilitas');
 
 // dashboard
 Route::get('/dashboard', function () {

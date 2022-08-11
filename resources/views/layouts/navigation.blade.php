@@ -32,6 +32,10 @@
                     <x-nav-link :href="route('tenaga_pendidik')" :active="request()->routeIs('tenaga_pendidik')">
                         {{ __('Tenaga Pendidik & Staff') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('fasilitas')" :active="request()->routeIs('fasilitas')">
+                        {{ __('Fasilitas') }}
+                    </x-nav-link>
                 </div>
             </div>
 
