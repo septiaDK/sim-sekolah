@@ -89,7 +89,7 @@ return [
         'numeric' => 'The :attribute must not be greater than :max.',
         'string' => 'The :attribute must not be greater than :max characters.',
     ],
-    'mimes' => 'The :attribute must be a file of type: :values.',
+    'mimes' => ':attribute harus berformat type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
         'array' => 'The :attribute must have at least :min items.',

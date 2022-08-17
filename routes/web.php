@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\FileDownloadController;
 use App\Http\Controllers\IdentitasSekolahController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
@@ -40,6 +41,10 @@ Route::get('tenaga_pendidik', [TenagaPendidikController::class, 'index'])->middl
 // fasilitas
 Route::resource('fasilitas', FasilitasController::class)->middleware(['auth']);
 Route::get('fasilitas', [FasilitasController::class, 'index'])->middleware(['auth'])->name('fasilitas');
+
+// fasilitas
+Route::resource('file_download', FileDownloadController::class)->middleware(['auth']);
+Route::get('file_download', [FileDownloadController::class, 'index'])->middleware(['auth'])->name('file_download');
 
 // dashboard
 Route::get('/dashboard', function () {

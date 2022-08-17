@@ -36,6 +36,10 @@
                     <x-nav-link :href="route('fasilitas')" :active="request()->routeIs('fasilitas')">
                         {{ __('Fasilitas') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('file_download')" :active="request()->routeIs('file_download')">
+                        {{ __('File Download') }}
+                    </x-nav-link>
                 </div>
             </div>
 
