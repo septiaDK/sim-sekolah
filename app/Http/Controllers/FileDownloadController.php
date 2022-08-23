@@ -88,8 +88,7 @@ class FileDownloadController extends Controller
 
         $file_download = FileDownload::create($data);
 
-        toast()->success('Tambah data berhasil.');
-        return redirect()->route('file_download');
+        return redirect()->route('file_download')->with('success', 'Tambah Data');
     }
 
     /**
@@ -150,8 +149,7 @@ class FileDownloadController extends Controller
         $file_download = FileDownload::find($id);
         $file_download->update($data);
 
-        toast()->success('Update data berhasil.');
-        return redirect()->route('file_download');
+        return redirect()->route('file_download')->with('success', 'Update Data');
     }
 
     /**
@@ -179,11 +177,9 @@ class FileDownloadController extends Controller
 
             $file_download->delete();
 
-            toast()->success('Hapus data berhasil.');
-            return redirect()->route('file_download');
+            return redirect()->route('file_download')->with('success', 'Hapus Data');
         } else {
-            toast()->error('Hapus data gagal');
-            return redirect()->route('file_download');
+            return redirect()->route('file_download')->with('error', 'Hapus Data');
         }
     }
 }

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\FileDownloadController;
+use App\Http\Controllers\GaleriFotoController;
+use App\Http\Controllers\GaleriVideoController;
 use App\Http\Controllers\IdentitasSekolahController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
@@ -45,6 +47,14 @@ Route::get('fasilitas', [FasilitasController::class, 'index'])->middleware(['aut
 // fasilitas
 Route::resource('file_download', FileDownloadController::class)->middleware(['auth']);
 Route::get('file_download', [FileDownloadController::class, 'index'])->middleware(['auth'])->name('file_download');
+
+// galeri foto
+Route::resource('galeri_foto', GaleriFotoController::class)->middleware(['auth']);
+Route::get('galeri_foto', [GaleriFotoController::class, 'index'])->middleware(['auth'])->name('galeri_foto');
+
+// galeri video
+Route::resource('galeri_video', GaleriVideoController::class)->middleware(['auth']);
+Route::get('galeri_video', [GaleriVideoController::class, 'index'])->middleware(['auth'])->name('galeri_video');
 
 // dashboard
 Route::get('/dashboard', function () {

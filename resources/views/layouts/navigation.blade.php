@@ -4,38 +4,138 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                {{-- <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
-                </div>
+                </div> --}}
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px  sm:flex">
 
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('identitas_sekolah')" :active="request()->routeIs('identitas_sekolah')">
-                        {{ __('Profil Sekolah') }}
-                    </x-nav-link>
+                    <!-- Profil Dropdown -->
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button
+                                    class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                    <div>Profil</div>
 
-                    <x-nav-link :href="route('visi_misi')" :active="request()->routeIs('visi_misi')">
-                        {{ __('Visi Misi') }}
-                    </x-nav-link>
+                                    <div class="ml-1">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </x-slot>
 
-                    <x-nav-link :href="route('kategori')" :active="request()->routeIs('kategori')">
-                        {{ __('Kategori') }}
-                    </x-nav-link>
+                            <x-slot name="content">
+                                    <x-dropdown-link :href="route('identitas_sekolah')">
+                                        {{ __('Identitas Sekolah') }}
+                                    </x-dropdown-link>
+                                    <x-dropdown-link :href="route('visi_misi')">
+                                        {{ __('Visi Misi') }}
+                                    </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
 
-                    <x-nav-link :href="route('tenaga_pendidik')" :active="request()->routeIs('tenaga_pendidik')">
-                        {{ __('Tenaga Pendidik & Staff') }}
-                    </x-nav-link>
+                    <!-- Sumber Daya Dropdown -->
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button
+                                    class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out ">
+                                    <div>Sumber Daya</div>
 
-                    <x-nav-link :href="route('fasilitas')" :active="request()->routeIs('fasilitas')">
-                        {{ __('Fasilitas') }}
-                    </x-nav-link>
+                                    <div class="ml-1">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </x-slot>
+
+                            <x-slot name="content">
+                                    <x-dropdown-link :href="route('tenaga_pendidik')">
+                                        {{ __('Tenaga Pendidik & Staff') }}
+                                    </x-dropdown-link>
+                                    <x-dropdown-link :href="route('fasilitas')">
+                                        {{ __('Fasilitas') }}
+                                    </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
+
+                    <!-- Galeri Dropdown -->
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button
+                                    class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out ">
+                                    <div>Galeri</div>
+
+                                    <div class="ml-1">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </x-slot>
+
+                            <x-slot name="content">
+                                    <x-dropdown-link :href="route('galeri_foto')">
+                                        {{ __('Foto') }}
+                                    </x-dropdown-link>
+                                    <x-dropdown-link :href="route('galeri_video')">
+                                        {{ __('Video') }}
+                                    </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
+
+                    <!-- Postingan Dropdown -->
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button
+                                    class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out ">
+                                    <div>Postingan</div>
+
+                                    <div class="ml-1">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </x-slot>
+
+                            <x-slot name="content">
+                                    <x-dropdown-link :href="route('kategori')">
+                                        {{ __('Kategori') }}
+                                    </x-dropdown-link>
+                                    <x-dropdown-link :href="route('kategori')">
+                                        {{ __('Daftar Postingan') }}
+                                    </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
 
                     <x-nav-link :href="route('file_download')" :active="request()->routeIs('file_download')">
                         {{ __('File Download') }}
@@ -63,6 +163,10 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-link :href="route('kategori')">
+                            {{ __('Pengaturan Akun') }}
+                        </x-dropdown-link>
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

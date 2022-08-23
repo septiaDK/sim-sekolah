@@ -97,8 +97,7 @@ class FasilitasController extends Controller
 
         $fasilitas = Fasilitas::create($data);
 
-        toast()->success('Tambah data berhasil.');
-        return redirect()->route('fasilitas');
+        return redirect()->route('fasilitas')->with('success', 'Tambah Data');
     }
 
     /**
@@ -156,11 +155,10 @@ class FasilitasController extends Controller
             );
         }
 
-        $fasilitas = Fasilitas::where('id', $id)->first();
+        $fasilitas = Fasilitas::find($id);
         $fasilitas->update($data);
 
-        toast()->success('Update data berhasil.');
-        return redirect()->route('fasilitas');
+        return redirect()->route('fasilitas')->with('success', 'Update Data');
     }
 
     /**
@@ -188,11 +186,9 @@ class FasilitasController extends Controller
 
             $fasilitas->delete();
 
-            toast()->success('Hapus data berhasil.');
-            return redirect()->route('fasilitas');
+            return redirect()->route('fasilitas')->with('success', 'Hapus Data');;
         } else {
-            toast()->error('Hapus data gagal');
-            return redirect()->route('fasilitas');
+            return redirect()->route('fasilitas')->with('error', 'Hapus Data');;
         }
     }
 }

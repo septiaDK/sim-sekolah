@@ -108,8 +108,7 @@ class TenagaPendidikController extends Controller
 
         $tenaga_pendidik = TenagaPendidik::create($data);
 
-        toast()->success('Tambah data berhasil.');
-        return redirect()->route('tenaga_pendidik');
+        return redirect()->route('tenaga_pendidik')->with('success', 'Tambah Data');
     }
 
     /**
@@ -167,11 +166,10 @@ class TenagaPendidikController extends Controller
             );
         }
 
-        $tenaga_pendidik = TenagaPendidik::where('id', $id)->first();
+        $tenaga_pendidik = TenagaPendidik::find($id);
         $tenaga_pendidik->update($data);
 
-        toast()->success('Update data berhasil.');
-        return redirect()->route('tenaga_pendidik');
+        return redirect()->route('tenaga_pendidik')->with('success', 'Update Data');
     }
 
     /**
@@ -199,11 +197,9 @@ class TenagaPendidikController extends Controller
 
             $tenaga_pendidik->delete();
 
-            toast()->success('Hapus data berhasil.');
-            return redirect()->route('tenaga_pendidik');
+            return redirect()->route('tenaga_pendidik')->with('success', 'Hapus Data');
         } else {
-            toast()->error('Hapus data gagal');
-            return redirect()->route('tenaga_pendidik');
+            return redirect()->route('tenaga_pendidik')->with('error', 'Hapus Data');
         }
     }
 }

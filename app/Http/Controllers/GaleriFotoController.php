@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\VisiMisi;
 use Illuminate\Http\Request;
 
-class VisiMisiController extends Controller
+class GaleriFotoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +13,7 @@ class VisiMisiController extends Controller
      */
     public function index()
     {
-        $title = 'Visi Misi';
-        // check data visi misi
-        $visi_misi = VisiMisi::get()->first();
-
-        return view('pages.backend.visi_misi.index', compact('title', 'visi_misi'));
+        //
     }
 
     /**
@@ -28,8 +23,7 @@ class VisiMisiController extends Controller
      */
     public function create()
     {
-        $title = 'Tambah Visi Misi';
-        return view('pages.backend.visi_misi.create', compact('title'));
+        //
     }
 
     /**
@@ -40,11 +34,7 @@ class VisiMisiController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        // add to visi misi
-        $visi_misi = VisiMisi::create($data);
-
-        return  redirect()->route('visi_misi')->with('success', 'Tambah Data');
+        //
     }
 
     /**
@@ -55,7 +45,7 @@ class VisiMisiController extends Controller
      */
     public function show($id)
     {
-        abort(404);
+        //
     }
 
     /**
@@ -66,9 +56,7 @@ class VisiMisiController extends Controller
      */
     public function edit($id)
     {
-        $title = 'Ubah Visi Misi';
-        $visi_misi = VisiMisi::where('id', $id)->first();
-        return view('pages.backend.visi_misi.edit', compact('title', 'visi_misi'));
+        //
     }
 
     /**
@@ -80,11 +68,7 @@ class VisiMisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data_visi_misi = $request->all();
-        $visi_misi = VisiMisi::find($id);
-        $visi_misi->update($data_visi_misi);
-
-        return redirect()->route('visi_misi')->with('success', 'Update Data');
+        //
     }
 
     /**
@@ -95,6 +79,6 @@ class VisiMisiController extends Controller
      */
     public function destroy($id)
     {
-        abort(404);
+        //
     }
 }

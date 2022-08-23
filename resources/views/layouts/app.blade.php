@@ -95,7 +95,6 @@
                 {{ $slot }}
             </main>
         </div>
-
         {{ $script ?? '' }}
         <script>
 
@@ -132,7 +131,31 @@
                 });
             });
         </script>
-        @include('sweetalert::alert')
+
+        @if (session('success'))
+            <script>
+                swal({
+                    icon: 'success',
+                    title: "Berhasil",
+                    text: "{{ session('success') }}",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            </script>
+        @endif
+
+        @if (session('error'))
+            <script>
+                swal({
+                    icon: 'error',
+                    title: "Gagal",
+                    text: "{{ session('error') }}",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            </script>
+        @endif
+
         <script src="//cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
     </body>
 </html>

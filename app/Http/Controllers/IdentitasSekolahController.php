@@ -52,8 +52,7 @@ class IdentitasSekolahController extends Controller
 
         $identitas_sekolah = IdentitasSekolah::create($data);
 
-        toast()->success('Tambah data berhasil.');
-        return redirect()->route('identitas_sekolah');
+        return redirect()->route('identitas_sekolah')->with('success', 'Tambah Data');
     }
 
     /**
@@ -111,11 +110,10 @@ class IdentitasSekolahController extends Controller
             );
         }
 
-        $identitas_sekolah = IdentitasSekolah::where('id', $id)->first();
+        $identitas_sekolah = IdentitasSekolah::find($id);
         $identitas_sekolah->update($data);
 
-        toast()->success('Update data berhasil.');
-        return redirect()->route('identitas_sekolah');
+        return redirect()->route('identitas_sekolah')->with('success', 'Update Data');
     }
 
     /**

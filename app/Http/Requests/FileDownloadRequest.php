@@ -24,7 +24,15 @@ class FileDownloadRequest extends FormRequest
     public function rules()
     {
         return [
-            'path_link' => 'required|mimes:csv,txt,xlx,xls,pdf,docx,doc'
+            'path_link' => 'required|mimes:csv,txt,xlx,xls,pdf,docx,doc',
+            'judul' => 'required',
         ];
     }
+
+    public function messages()
+{
+    return [
+        'path_link.required' => 'File harus di isi.',
+    ];
+}
 }

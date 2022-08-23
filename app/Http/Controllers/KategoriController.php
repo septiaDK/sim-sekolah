@@ -72,8 +72,7 @@ class KategoriController extends Controller
         // add to table kategori
         $kategori = Kategori::create($data);
 
-        toast()->success('Tambah data berhasil.');
-        return redirect()->route('kategori');
+        return redirect()->route('kategori')->with('success', 'Tambah Data');
     }
 
     /**
@@ -110,11 +109,10 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         $data_kategori = $request->all();
-        $kategori = Kategori::where('id', $id)->first();
+        $kategori = Kategori::find($id);
         $kategori->update($data_kategori);
 
-        toast()->success('Ubah data berhasil.');
-        return redirect()->route('kategori');
+        return redirect()->route('kategori')->with('success', 'Update Data');
     }
 
     /**
@@ -129,11 +127,9 @@ class KategoriController extends Controller
         if($kategori) {
             $kategori->delete();
 
-            toast()->success('Hapus data berhasil.');
-            return redirect()->route('kategori');
+            return redirect()->route('kategori')->with('success', 'Hapus Data');
         } else {
-            toast()->error('Hapus data gagal!');
-            return redirect()->route('kategori');
+            return redirect()->route('kategori')->with('error', 'Hapus Data');
         }
     }
 }
