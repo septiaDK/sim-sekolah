@@ -22,7 +22,7 @@ class GaleriFotoController extends Controller
         $title = 'Data Galeri Foto';
 
         if(request()->ajax()) {
-            $query = Galeri::query();
+            $query = Galeri::where('jenis', 'foto')->get();
 
             return DataTables::of($query)
                     ->addIndexColumn()
@@ -45,12 +45,12 @@ class GaleriFotoController extends Controller
                     ->addColumn('action', function($item){
                         return '
                         <a class="text-white px-2 py-2 rounded-md focus:outline-none focus:shadow-outline" 
-                            href="' . route('galeri_foto.edit', $item->id) . '"
+                            href="' . route('galeri_video.edit', $item->id) . '"
                             style="background-color: rgb(75 85 99); margin-right: 0.6rem; display: inline-block;"
                         >
                             Edit
                         </a>
-                        <form action="'. route('galeri_foto.destroy', $item->id) .'" method="POST" style="display: inline-block;">
+                        <form action="'. route('galeri_video.destroy', $item->id) .'" method="POST" style="display: inline-block;">
                         <button class="text-white px-2 py-2 rounded-md focus:outline-none focus:shadow-outline hapus" 
                             data-nama="'. $item->judul .'"
                             style="background-color: rgb(220 38 38);"

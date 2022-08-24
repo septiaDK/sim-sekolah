@@ -13,6 +13,9 @@
         <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
         <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
         <link href="{{ url('vendor/lightbox2-2.11.3/dist/css/lightbox.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css') }}"
+        integrity="sha512-UiVP2uTd2EwFRqPM4IzVXuSFAzw+Vo84jxICHVbOA1VZFUyr4a6giD9O3uvGPFIuB2p3iTnfDVLnkdY7D/SJJQ=="
+        crossorigin="anonymous" />
         <style>
             /*Form fields*/
             .dataTables_wrapper select,
@@ -157,5 +160,13 @@
         @endif
 
         <script src="//cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+        <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js') }}"></script>
+        <script src="{{ url('https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js') }}" defer></script>
+        <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.js') }}"
+            integrity="sha512-UU0D/t+4/SgJpOeBYkY+lG16MaNF8aqmermRIz8dlmQhOlBnw6iQrnt4Ijty513WB3w+q4JO75IX03lDj6qQNA=="
+            crossorigin="anonymous"></script>
+        <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/dragscroll/0.0.8/dragscroll.min.js') }}"
+            integrity="sha512-/ncZdOhQm5pgj5KHy720Ck7XF5RzYK6rtUsLNnGcitXrKT3wUYzTrPlOSG7SdL2kDzkuLEOFvrQRyllcZkeAlg=="
+            crossorigin="anonymous"></script>
     </body>
 </html>
