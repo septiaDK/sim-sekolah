@@ -24,41 +24,46 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingPageController::class, 'index']);
 
-// kategori
-Route::resource('kategori', KategoriController::class)->middleware(['auth']);
-Route::get('kategori', [KategoriController::class, 'index'])->middleware(['auth'])->name('kategori');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    // kategori
+    Route::resource('kategori', KategoriController::class);
+    Route::get('kategori', [KategoriController::class, 'index'])->name('kategori');
 
-// visi misi
-Route::resource('visi_misi', VisiMisiController::class)->middleware(['auth']);
-Route::get('visi_misi', [VisiMisiController::class, 'index'])->middleware(['auth'])->name('visi_misi');
+    // visi misi
+    Route::resource('visi_misi', VisiMisiController::class);
+    Route::get('visi_misi', [VisiMisiController::class, 'index'])->name('visi_misi');
 
-// identitas_sekolah
-Route::resource('identitas_sekolah', IdentitasSekolahController::class)->middleware(['auth']);
-Route::get('identitas_sekolah', [IdentitasSekolahController::class, 'index'])->middleware(['auth'])->name('identitas_sekolah');
+    // identitas_sekolah
+    Route::resource('identitas_sekolah', IdentitasSekolahController::class);
+    Route::get('identitas_sekolah', [IdentitasSekolahController::class, 'index'])->name('identitas_sekolah');
 
-// guru
-Route::resource('tenaga_pendidik', TenagaPendidikController::class)->middleware(['auth']);
-Route::get('tenaga_pendidik', [TenagaPendidikController::class, 'index'])->middleware(['auth'])->name('tenaga_pendidik');
+    // guru
+    Route::resource('tenaga_pendidik', TenagaPendidikController::class);
+    Route::get('tenaga_pendidik', [TenagaPendidikController::class, 'index'])->name('tenaga_pendidik');
 
-// fasilitas
-Route::resource('fasilitas', FasilitasController::class)->middleware(['auth']);
-Route::get('fasilitas', [FasilitasController::class, 'index'])->middleware(['auth'])->name('fasilitas');
+    // fasilitas
+    Route::resource('fasilitas', FasilitasController::class);
+    Route::get('fasilitas', [FasilitasController::class, 'index'])->name('fasilitas');
 
-// fasilitas
-Route::resource('file_download', FileDownloadController::class)->middleware(['auth']);
-Route::get('file_download', [FileDownloadController::class, 'index'])->middleware(['auth'])->name('file_download');
+    // fasilitas
+    Route::resource('file_download', FileDownloadController::class);
+    Route::get('file_download', [FileDownloadController::class, 'index'])->name('file_download');
 
-// galeri foto
-Route::resource('galeri_foto', GaleriFotoController::class)->middleware(['auth']);
-Route::get('galeri_foto', [GaleriFotoController::class, 'index'])->middleware(['auth'])->name('galeri_foto');
+    // galeri foto
+    Route::resource('galeri_foto', GaleriFotoController::class);
+    Route::get('galeri_foto', [GaleriFotoController::class, 'index'])->name('galeri_foto');
 
-// galeri video
-Route::resource('galeri_video', GaleriVideoController::class)->middleware(['auth']);
-Route::get('galeri_video', [GaleriVideoController::class, 'index'])->middleware(['auth'])->name('galeri_video');
+    // galeri video
+    Route::resource('galeri_video', GaleriVideoController::class);
+    Route::get('galeri_video', [GaleriVideoController::class, 'index'])->name('galeri_video');
 
-// dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    // dashboard
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+});
+
+
 
 require __DIR__.'/auth.php';
