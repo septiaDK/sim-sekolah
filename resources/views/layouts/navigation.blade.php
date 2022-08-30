@@ -130,7 +130,7 @@
                                     <x-dropdown-link :href="route('kategori')">
                                         {{ __('Kategori') }}
                                     </x-dropdown-link>
-                                    <x-dropdown-link :href="route('kategori')">
+                                    <x-dropdown-link :href="route('postingan')">
                                         {{ __('Daftar Postingan') }}
                                     </x-dropdown-link>
                             </x-slot>

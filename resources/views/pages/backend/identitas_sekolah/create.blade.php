@@ -79,25 +79,97 @@
                     </div>
 
                     <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="alamat">
+                                Alamat
+                            </label>
+                            <input type="text" id="alamat" name="alamat"
+                                placeholder="Ketik alamat di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('alamat') }}">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
-                                for="latitude">
-                                Latitude
+                                for="phone">
+                                Telp.
                             </label>
-                            <input type="text" id="latitude" name="latitude"
-                                placeholder="Ketik Latitude di sini"
+                            <input type="text" id="phone" name="phone"
+                                placeholder="Ketik Telp. di sini"
                                 class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                value="{{ old('latitude') }}">
+                                value="{{ old('phone') }}">
                         </div>
                         <div class="w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
-                                for="longitude">
-                                Longitude
+                                for="email">
+                                Email
                             </label>
-                            <input type="text" id="longitude" name="longitude"
-                                placeholder="Ketik Longitude di sini"
+                            <input type="email" id="email" name="email"
+                                placeholder="Ketik Email di sini"
                                 class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                value="{{ old('longitude') }}">
+                                value="{{ old('email') }}">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="url_maps">
+                                Link Maps
+                            </label>
+                            <input type="text" id="url_maps" name="url_maps"
+                                placeholder="link maps di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('url_maps') }}">
+                        </div>
+                        <div class="w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="url_website">
+                                Link Website
+                            </label>
+                            <input type="email" id="url_website" name="url_website"
+                                placeholder="link website di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('url_website') }}">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="instagram">
+                                Link Instagram
+                            </label>
+                            <input type="text" id="instagram" name="instagram"
+                                placeholder="link instagram di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('instagram') }}">
+                        </div>
+                        <div class="w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="facebook">
+                                Link Facebook
+                            </label>
+                            <input type="text" id="facebook" name="facebook"
+                                placeholder="link facebook di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('email') }}">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="youtube">
+                                Link Youtube
+                            </label>
+                            <input type="text" id="youtube" name="youtube"
+                                placeholder="link youtube di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('youtube') }}">
                         </div>
                     </div>
 

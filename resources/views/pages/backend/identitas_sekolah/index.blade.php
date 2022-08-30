@@ -66,21 +66,31 @@
                                 <tr>
                                     <th
                                         class="w-1/4 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                                        Latitute
+                                        Alamat
                                     </th>
                                     <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">
-                                            {{ $identitas_sekolah->latitude ?? '' }}</p>
+                                            {{ $identitas_sekolah->alamat ?? '' }}</p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th
                                         class="w-1/4 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                                        Longitute
+                                        Telp.
                                     </th>
                                     <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">
-                                            {{ $identitas_sekolah->longitude ?? '' }}</p>
+                                            {{ $identitas_sekolah->phone ?? '' }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th
+                                        class="w-1/4 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                                        Email
+                                    </th>
+                                    <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            {{ $identitas_sekolah->email ?? '' }}</p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -89,14 +99,66 @@
                                         Struktur Organisasi
                                     </th>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        @if ($identitas_sekolah->struktur_organisasi != null)
-                                            <span class="font-base inline-block text-xs text-red-600 mb-5">Silahkan klik gambar untuk melihat resolusi lebih besar !</span>
+                                        @if (isset($identitas_sekolah->struktur_organisasi))
+                                            @if ($identitas_sekolah->struktur_organisasi != null)
+                                                <span class="font-base inline-block text-xs text-red-600 mb-5">Silahkan klik gambar untuk melihat resolusi lebih besar !</span>
 
-                                            <a href="{{ url(Storage::url($identitas_sekolah->struktur_organisasi)) }}" data-lightbox="image-Struktur-Organisasi">
-                                                <img src="{{ url(Storage::url($identitas_sekolah->struktur_organisasi)) }}"
-                                                    alt="photo struktur organisasi" class="w-48 h-48 rounded-lg">
-                                            </a>
+                                                <a href="{{ url(Storage::url($identitas_sekolah->struktur_organisasi)) }}" data-lightbox="image-Struktur-Organisasi">
+                                                    <img src="{{ url(Storage::url($identitas_sekolah->struktur_organisasi)) }}"
+                                                        alt="photo struktur organisasi" class="w-48 h-48 rounded-lg">
+                                                </a>
+                                            @endif
                                         @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th
+                                        class="w-1/4 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                                        Maps
+                                    </th>
+                                    <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            {{ $identitas_sekolah->url_maps ?? '' }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th
+                                        class="w-1/4 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                                        Website
+                                    </th>
+                                    <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            {{ $identitas_sekolah->url_website ?? '' }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th
+                                        class="w-1/4 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                                        Instagram
+                                    </th>
+                                    <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            {{ $identitas_sekolah->instagram ?? '' }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th
+                                        class="w-1/4 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                                        Facebook
+                                    </th>
+                                    <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            {{ $identitas_sekolah->facebook ?? '' }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th
+                                        class="w-1/4 px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                                        Youtube
+                                    </th>
+                                    <td class="px-3 py-3 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            {{ $identitas_sekolah->youtube ?? '' }}</p>
                                     </td>
                                 </tr>
                             </tbody>

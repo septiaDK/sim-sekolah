@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('postingan', function (Blueprint $table) {
+        Schema::create('kategori_postingan', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->index('fk_postingan_to_user');
-            $table->string('judul')->nullable();
-            $table->longText('isi')->nullable();
-            $table->longText('cover')->nullable();
-
+            $table->unsignedBigInteger('postingan_id')->nullable();
+            $table->unsignedBigInteger('kategori_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('postingan_id')->references('id')->on('postingan');
+            $table->foreign('kategori_id')->references('id')->on('kategori');
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('postingan');
+        Schema::dropIfExists('kategori_postingan');
     }
 };

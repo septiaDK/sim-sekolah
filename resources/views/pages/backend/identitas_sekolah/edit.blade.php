@@ -38,7 +38,7 @@
                             <input type="text" id="nama_sekolah" name="nama_sekolah"
                                 placeholder="Ketik nama sekolah di sini"
                                 class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                value="{{ $identitas_sekolah->nama_sekolah ?? old('nama_sekolah') }}">
+                                value="{{ old('nama_sekolah') ?? $identitas_sekolah->nama_sekolah }}">
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
                             </label>
                             <input type="text" id="sk_berdiri" name="sk_berdiri" placeholder="Ketik SK di sini"
                                 class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                value="{{ $identitas_sekolah->sk_berdiri ?? old('sk_berdiri') }}">
+                                value="{{ old('sk_berdiri') ?? $identitas_sekolah->sk_berdiri }}">
                         </div>
                         <div class="w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
@@ -61,7 +61,7 @@
                             <span class="font-base inline-block text-xs text-red-600">Format : Hari/Bulan/Tahun</span>
                             <input type="date" id="tgl_sk_berdiri" name="tgl_sk_berdiri" placeholder=""
                                 class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                value="{{ $identitas_sekolah->tgl_sk_berdiri ?? old('tgl_sk_berdiri') }}">
+                                value="{{ old('tgl_sk_berdiri') ?? $identitas_sekolah->tgl_sk_berdiri }}">
                         </div>
                     </div>
 
@@ -71,28 +71,102 @@
                                 for="sejarah_singkat">
                                 Sejarah Singkat
                             </label>
-                            <textarea name="sejarah_singkat" id="sejarah_singkat" class="ckeditor" rows="5" placeholder="">{{ $identitas_sekolah->sejarah_singkat ?? old('sejarah_singkat') }}</textarea>
+                            <textarea name="sejarah_singkat" id="sejarah_singkat" class="ckeditor" rows="5" placeholder="">{{ old('sejarah_singkat') ?? $identitas_sekolah->sejarah_singkat }}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="alamat">
+                                Alamat
+                            </label>
+                            <input type="text" id="alamat" name="alamat"
+                                placeholder="Ketik alamat di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('alamat') ?? $identitas_sekolah->alamat }}">
                         </div>
                     </div>
 
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
-                                for="latitude">
-                                Latitude
+                                for="phone">
+                                Telp.
                             </label>
-                            <input type="text" id="latitude" name="latitude" placeholder="Ketik Latitude di sini"
+                            <input type="text" id="phone" name="phone"
+                                placeholder="Ketik Telp. di sini"
                                 class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                value="{{ $identitas_sekolah->latitude ?? old('latitude') }}">
+                                value="{{ old('phone') ?? $identitas_sekolah->phone }}">
                         </div>
                         <div class="w-1/2 px-3">
                             <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
-                                for="longitude">
-                                Longitude
+                                for="email">
+                                Email
                             </label>
-                            <input type="text" id="longitude" name="longitude" placeholder="Ketik Longitude di sini"
+                            <input type="email" id="email" name="email"
+                                placeholder="Ketik Email di sini"
                                 class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                value="{{ $identitas_sekolah->longitude ?? old('longitude') }}">
+                                value="{{ old('email') ?? $identitas_sekolah->email }}">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="url_maps">
+                                Link Maps
+                            </label>
+                            <input type="text" id="url_maps" name="url_maps"
+                                placeholder="link maps di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('url_maps') ?? $identitas_sekolah->url_maps }}">
+                        </div>
+                        <div class="w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="url_website">
+                                Link Website
+                            </label>
+                            <input type="email" id="url_website" name="url_website"
+                                placeholder="link website di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('url_website') ?? $identitas_sekolah->url_website }}">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="instagram">
+                                Link Instagram
+                            </label>
+                            <input type="text" id="instagram" name="instagram"
+                                placeholder="link instagram di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('instagram') ?? $identitas_sekolah->instagaram }}">
+                        </div>
+                        <div class="w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="facebook">
+                                Link Facebook
+                            </label>
+                            <input type="text" id="facebook" name="facebook"
+                                placeholder="link facebook di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('email') ?? $identitas_sekolah->email }}">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3">
+                            <label class="block uppercase tracking-wide text-gray-800 text-xs font-bold mb-2"
+                                for="youtube">
+                                Link Youtube
+                            </label>
+                            <input type="text" id="youtube" name="youtube"
+                                placeholder="link youtube di sini"
+                                class="appearance-none block w-full text-gray-800 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                value="{{ old('youtube') ?? $identitas_sekolah->youtube }}">
                         </div>
                     </div>
 

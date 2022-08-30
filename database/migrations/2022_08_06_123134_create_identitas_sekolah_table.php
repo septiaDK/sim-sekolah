@@ -20,9 +20,16 @@ return new class extends Migration
             $table->string('sk_berdiri')->nullable();
             $table->date('tgl_sk_berdiri')->nullable();
             $table->longText('sejarah_singkat')->nullable();
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
             $table->longText('struktur_organisasi')->nullable();
+            $table->longText('alamat')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->string('url_maps')->nullable();
+            $table->string('url_website')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('tiktok')->nullable();
 
             $table->timestamps();
         });

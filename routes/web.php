@@ -7,6 +7,7 @@ use App\Http\Controllers\GaleriVideoController;
 use App\Http\Controllers\IdentitasSekolahController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\PostinganController;
 use App\Http\Controllers\TenagaPendidikController;
 use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // kategori
     Route::resource('kategori', KategoriController::class);
     Route::get('kategori', [KategoriController::class, 'index'])->name('kategori');
+
+    // postingan
+    Route::resource('postingan', PostinganController::class);
+    Route::get('postingan', [PostinganController::class, 'index'])->name('postingan');
 
     // visi misi
     Route::resource('visi_misi', VisiMisiController::class);

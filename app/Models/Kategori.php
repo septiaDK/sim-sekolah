@@ -22,4 +22,7 @@ class Kategori extends Model
         'updated_at'
     ];
 
+    public function postingans() {
+        return $this->belongsToMany('App\Models\Postingan');
+    }
 }
