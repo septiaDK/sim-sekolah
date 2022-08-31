@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\EkstrakurikulerController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\FileDownloadController;
 use App\Http\Controllers\GaleriFotoController;
 use App\Http\Controllers\GaleriVideoController;
 use App\Http\Controllers\IdentitasSekolahController;
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PostinganController;
@@ -61,6 +63,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // galeri video
     Route::resource('galeri_video', GaleriVideoController::class);
     Route::get('galeri_video', [GaleriVideoController::class, 'index'])->name('galeri_video');
+    
+    // ekstrakurikuler
+    Route::resource('ekstrakurikuler', EkstrakurikulerController::class);
+    Route::get('ekstrakurikuler', [EkstrakurikulerController::class, 'index'])->name('ekstrakurikuler');
+    
+    // jurusan
+    Route::resource('jurusan', JurusanController::class);
+    Route::get('jurusan', [JurusanController::class, 'index'])->name('jurusan');
 
     // dashboard
     Route::get('/dashboard', function () {

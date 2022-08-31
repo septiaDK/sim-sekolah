@@ -140,6 +140,14 @@
                     <x-nav-link :href="route('file_download')" :active="request()->routeIs('file_download')">
                         {{ __('File Download') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('ekstrakurikuler')" :active="request()->routeIs('ekstrakurikuler')">
+                        {{ __('Ekstrakurikuler') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('jurusan')" :active="request()->routeIs('jurusan')">
+                        {{ __('Jurusan') }}
+                    </x-nav-link>
                 </div>
             </div>
 
